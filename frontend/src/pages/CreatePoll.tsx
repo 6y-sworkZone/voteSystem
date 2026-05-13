@@ -84,7 +84,7 @@ const CreatePoll: React.FC = () => {
           </Form.Item>
           <Form.List
             name="options"
-            initialValues={[{ text: '' }, { text: '' }]}
+            initialValue={[{ text: '' }, { text: '' }]}
             rules={[
               {
                 validator: async (_, options) => {
@@ -107,7 +107,6 @@ const CreatePoll: React.FC = () => {
                       <Form.Item
                         {...field}
                         name={[field.name, 'text']}
-                        fieldKey={[field.fieldKey, 'text']}
                         rules={[{ required: true, message: '请输入选项内容' }]}
                         noStyle
                       >

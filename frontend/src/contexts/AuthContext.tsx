@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { authAPI, User } from '../services/api';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { authAPI } from '../services/api';
+import type { User } from '../services/api';
 import { message } from 'antd';
 
 interface AuthContextType {

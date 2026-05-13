@@ -26,8 +26,8 @@ const Navbar: React.FC = () => {
         style={{ flex: 1, minWidth: 0 }}
         items={[
           { key: '1', label: <Link to="/">投票列表</Link> },
-          isAuthenticated && { key: '2', label: <Link to="/create">创建投票</Link> },
-        ].filter(Boolean)}
+          isAuthenticated ? { key: '2', label: <Link to="/create">创建投票</Link> } : null,
+        ].filter((item): item is NonNullable<typeof item> => item !== null)}
       />
       <div style={{ marginLeft: 'auto' }}>
         {isAuthenticated ? (

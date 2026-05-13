@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, List, Progress, Button, Select, Space, Tag, Typography, message } from 'antd';
-import { pollAPI, Poll } from '../services/api';
+import { pollAPI } from '../services/api';
+import type { Poll } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -110,7 +111,7 @@ const PollList: React.FC = () => {
                       )}
                     </Text>
                     <Text type="secondary">
-                      {option.vote_count} 票 ({option.percentage}%)
+                      {option.vote_count} 票 ({option.percentage.toFixed(1)}%)
                     </Text>
                   </div>
                   <Progress percent={option.percentage} showInfo={false} />
