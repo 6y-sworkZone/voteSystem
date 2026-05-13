@@ -56,7 +56,15 @@ export const authAPI = {
   register: (data: { username: string; email: string; password: string }) =>
     api.post<User>('/register', data),
   login: (data: { username: string; password: string }) =>
-    api.post<{ access_token: string; token_type: string }>('/token', new URLSearchParams(data)),
+    axios.post<{ access_token: string; token_type: string }>(
+      `${API_BASE_URL}/token`,
+      new URLSearchParams(data),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    ),
   getCurrentUser: () => api.get<User>('/users/me'),
 };
 
